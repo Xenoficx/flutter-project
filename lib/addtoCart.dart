@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_app/thankyou.dart';
 
 class AddCart extends StatelessWidget {
   @override
@@ -17,25 +18,36 @@ class AddCart extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(height:8.0),
+          SizedBox(height:3.0),
           Container(
-            child: Card(
-              elevation: 7.0,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  const ListTile(
-                    leading: Image(
-                      fit: BoxFit.contain,
-                      image: AssetImage(
-                        'assets/images/hamburger.jpg',
-                      ),
+            child: Row(
+            children: <Widget>[
+              Expanded(
+                child: FittedBox(
+                  fit: BoxFit.fitHeight,
+                  child: Image(
+                    image: AssetImage('assets/images/hamburger.jpg'),
                     ),
-                    title: Text('BEEF HAMBURGER'),
-                  ),
-                ],
+                ),
               ),
-            ),
+              Expanded(
+                child: Text(
+                  'BEEF HAMBURGER \$7.00',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: IconButton(
+                  icon: Icon(Icons.remove_shopping_cart_outlined),
+                  onPressed: () {
+                    
+                  },
+                ),
+              ),
+            ],
+          ),
           ),
           SizedBox(height:6.0),
           //Insert more products here
@@ -53,7 +65,12 @@ class AddCart extends StatelessWidget {
               fontSize: 25,
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ThankYou())
+                );
+          },
         ),
         ],
       ),
