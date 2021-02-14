@@ -1,4 +1,4 @@
-# project_app
+# Flutter project application on a Shopping app by Jun Kang
 
 A new Flutter project.
 
